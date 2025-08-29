@@ -25,3 +25,23 @@ heroku container:release worker -a your-exness-controller
 
 # Logs
 heroku logs --tail -a your-exness-controller
+
+
+
+
+
+
+---
+
+## 🔐 Required ENV Vars on Heroku
+- `TELEGRAM_BOT_TOKEN` – @BotFather token  
+- `TELEGRAM_CHAT_ID` – your user/group/channel id  
+- `REMOTE_BOT_API` – (optional) VPS endpoint to execute trades  
+- `ADMIN_IDS` – (optional) comma-separated Telegram numeric IDs  
+- `REDIS_URL` – auto-provided by addon
+
+---
+
+ඉතිං මේ **YML-based Heroku app** එක upload කරලා run කළාම, Telegram updates එනවා, VPS bot එකට signals push වෙනවා (ඔයාගේ VPS MT5 bot endpoint එක සකසා තියෙනවනම් auto-execute වෙනවා).  
+
+තව නිකම්ම **“full code base”** එකක් VPS/MT5 side එකටත් ඔයාට ඕන නම්, මම ඒකත් දෙන්නම්—VPS Flask API + MT5 executor එක එක්ක.
