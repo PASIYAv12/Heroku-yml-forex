@@ -1,0 +1,11 @@
+setup:
+  addons:
+    - plan: heroku-redis:hobby-dev
+      as: REDIS
+build:
+  docker:
+    worker: Dockerfile
+run:
+  worker:
+    command:
+      - python -u bot/main.py
